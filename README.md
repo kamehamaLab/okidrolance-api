@@ -41,3 +41,9 @@ rubocop
 
 ### git Actionsの設定
 `config/database.yml`と`config/database.tml.ci`を編集
+
+## テストデータ
+```
+rails db:seed
+```
+`db/seed.rb`を使ってテストデータ生成。

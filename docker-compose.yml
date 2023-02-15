@@ -5,7 +5,7 @@ services:
     environment:
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: pass
-      DATABASE_HOST: mysql
+      DATABASE_HOST: okidro-mysql
     volumes:
       - .:/usr/src/app
     ports:
