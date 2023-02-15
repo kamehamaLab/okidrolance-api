@@ -14,18 +14,13 @@ services:
       - mysql
     #こいつは自動でサーバが立ち上がるようにするやつ。buildのときはいらない
     #command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
-    stdin_open:
-      - true
-    tty:
-      - on
+    stdin_open: true
+    tty: on
 
   mysql:
-    image:
-      - mysql:8.0.16
-    restart:
-      - always
-    command:
-      - mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    image: mysql:8.0.16
+    restart: always
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: pass
