@@ -1,0 +1,76 @@
+# 違反度　C:Convention(慣習違反) W:Warning E:Error F:faral
+
+# 除外ファイルであるtodoを使用する
+inherit_from: .rubocop_todo.yml
+
+# オプション機能を関連付ける
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+# robocopの新しいバージョンを常に探す
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1.2
+
+# 以下のフォルダはrobocopのチェックから除外
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+# railsにカスタマイズされたrobocopを使う
+Rails:
+  Enabled: true
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# 長文のメソッド名を許可する
+Metrics/LineLength:
+  Enabled: false
+
+# 文字リテラルがfreezeになることを許可（ruby3.0からは深く考えず追記したほうがよさそう）
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 余分なスペースを許可する
+Layout/ExtraSpacing:
+  Enabled: false
+
+# ドキュメントのないpublic classを許可する（大規模開発だと許可しないほうがいいかも）
+Style/Documentation:
+  Enabled: false
+
+# コメントを書くときに適切にスペースを入れているか
+Layout/LeadingCommentSpace:
+  Enabled: false
+
+# サイズ警告
+Metrics/BlockLength:
+  Max: 30
+
+# 変数呼び出しや条件分岐の多さ
+Metrics/AbcSize:
+  Max: 25
+
+# メソッドの長さ警告
+Metrics/MethodLength:
+  Max: 30
+
+# モジュールのネスト記法、コンパクト記法の制約をなくす
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# %i()とかの書き方を無効
+Style/SymbolArray:
+  Enabled: false
+
+# selfを使うのを許可
+Style/RedundantSelf:
+  Enabled: false
