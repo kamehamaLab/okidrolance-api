@@ -14,5 +14,5 @@ docker-compose exec -it okidro-api  /bin/bash
 '''
 
 '''
-# rails new . --api --database=mysql --skip-yarn --skip-active-storagen--skip-javascript --skip-turbolinks --skip-test
+rails new . --api --database=mysql --skip-yarn --skip-active-storagen--skip-javascript --skip-turbolinks --skip-test
 '''
