@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  okiDroLance-api:
+  okiDro-api:
     build: .
     environment:
       DATABASE_USERNAME: root
@@ -11,13 +11,13 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - mysql
+      - okiDro-mysql
     #こいつは自動でサーバが立ち上がるようにするやつ。buildのときはいらない
     #command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
     stdin_open: true
     tty: on
 
-  mysql:
+  okiDro-mysql:
     image: mysql:8.0.16
     restart: always
     command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
@@ -27,7 +27,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - okiDroLance-mysql:/var/lib/mysql
+      - okiDro-mysql:/var/lib/mysql
 volumes:
   mysql-data:
     driver: local
