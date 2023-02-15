@@ -29,5 +29,5 @@ services:
     volumes:
       - okiDro-mysql:/var/lib/mysql
 volumes:
-  mysql-data:
+  okiDro-mysql:
     driver: local
