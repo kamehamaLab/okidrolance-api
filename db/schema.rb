@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_15_064908) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_065713) do
   create_table "devices", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "illuminations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "devices_id", null: false
+    t.float "illum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["devices_id"], name: "index_illuminations_on_devices_id"
   end
 
   create_table "temperatures", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -33,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_064908) do
     t.index ["devices_id"], name: "index_water_temperatures_on_devices_id"
   end
 
+  add_foreign_key "illuminations", "devices", column: "devices_id"
   add_foreign_key "temperatures", "devices", column: "devices_id"
   add_foreign_key "water_temperatures", "devices", column: "devices_id"
 end
