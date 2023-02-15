@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   okiDroLance-api:
-    build:
+    build: .
     environment:
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: pass
