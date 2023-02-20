@@ -1,12 +1,12 @@
-class DevicesController < ApplicationController
-  before_action :set_devices, only: %i[create]
+class Api::DevicesController < ApplicationController
+  before_action :set_devices, only: %i[index]
   before_action :set_device, only: %i[update]
 
   def create
     device = Device.new(location: params[:location])
 
     if device.save
-      render json: devive.adjust_json
+      render json: device.adjust_json
     else
       render json: device.error
     end
