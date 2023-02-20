@@ -11,4 +11,13 @@ class Device < ApplicationRecord
   has_many :temperatures, dependent: :destroy
   has_many :water_temperatures, dependent: :destroy
   has_many :illuminations, dependent: :destroy
+
+  def adjust_json
+    {
+      device: {
+        id: self.id,
+        location: self.location
+      }
+    }
+  end
 end
