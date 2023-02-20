@@ -37,5 +37,4 @@ class Api::DevicesController < ApplicationController
   def set_device
     @set_device = Device.find_by(id: params[:id])
   end
-
 end
