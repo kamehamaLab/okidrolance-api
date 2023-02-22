@@ -18,8 +18,8 @@ class Api::DevicesController < ApplicationController
 
   def update
     @set_device.temperatures.build(temp: params[:temp])
-    @set_device.water_temperatures.build(temp: params[:w_temp])
-    @set_device.illuminations.build(temp: params[:illum])
+    @set_device.water_temperatures.build(w_temp: params[:w_temp])
+    @set_device.illuminations.build(illum: params[:illum])
 
     if @set_device.save
       render json: @set_device.adjust_json
