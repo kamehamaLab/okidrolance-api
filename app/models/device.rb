@@ -14,10 +14,8 @@ class Device < ApplicationRecord
 
   def adjust_json
     {
-      device: {
-        id: self.id,
-        location: self.location
-      }
+      id: self.id,
+      location: self.location
     }
   end
 end
