@@ -18,4 +18,28 @@ class Device < ApplicationRecord
       location: self.location
     }
   end
+
+  def adjust_show_json
+    {
+      temp:
+        self.temperatures.map do |temperature|
+          temperature.temp
+        end,
+
+      w_temp:
+        self.water_temperatures.map do |water_temperature|
+          water_temperature.w_temp
+        end,
+
+      illum:
+        self.illuminations.map do |illumination|
+          illumination.illum
+        end,
+
+      created_at:
+        self.temperatures.map do |temperature|
+          temperature.created_at
+        end
+    }
+  end
 end
