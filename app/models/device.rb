@@ -31,7 +31,9 @@ class Device < ApplicationRecord
         self.illuminations.map(&:illum),
 
       created_at:
-        self.temperatures.map(&:created_at)
+        self.temperatures.map do |_temperature|
+          created_at.strftime('%Y/%m/%d %H:%M:%S')
+        end
     }
   end
 end
