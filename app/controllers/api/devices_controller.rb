@@ -1,6 +1,6 @@
 class Api::DevicesController < ApplicationController
   before_action :set_devices, only: %i[index]
-  before_action :set_device, only: %i[update]
+  before_action :set_device, only: %i[update show]
 
   def create
     device = Device.new(location: params[:location])
@@ -26,6 +26,10 @@ class Api::DevicesController < ApplicationController
     else
       render json: @set_device.error
     end
+  end
+
+  def show
+    render json: @set_device.adjust_show_json
   end
 
   private
