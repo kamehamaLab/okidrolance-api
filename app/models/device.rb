@@ -22,24 +22,16 @@ class Device < ApplicationRecord
   def adjust_show_json
     {
       temp:
-        self.temperatures.map do |temperature|
-          temperature.temp
-        end,
+        self.temperatures.map(&:temp),
 
       w_temp:
-        self.water_temperatures.map do |water_temperature|
-          water_temperature.w_temp
-        end,
+        self.water_temperatures.map(&:w_temp),
 
       illum:
-        self.illuminations.map do |illumination|
-          illumination.illum
-        end,
+        self.illuminations.map(&:illum),
 
       created_at:
-        self.temperatures.map do |temperature|
-          temperature.created_at
-        end
+        self.temperatures.map(&:created_at)
     }
   end
 end

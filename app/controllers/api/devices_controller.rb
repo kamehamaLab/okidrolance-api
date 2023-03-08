@@ -1,6 +1,6 @@
 class Api::DevicesController < ApplicationController
   before_action :set_devices, only: %i[index]
-  before_action :set_device, only: %i[update, show]
+  before_action :set_device, only: %i[update show]
 
   def create
     device = Device.new(location: params[:location])
