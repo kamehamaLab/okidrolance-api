@@ -2,9 +2,8 @@
 ## 環境構築
 commit treeを追う形で構築
 ### rails new
-commit:e357508122aa083aecf6bc8eb6b6c8e8b9516176 の状態の時に
 ```
-docker-compose up --build
+docker-compose up --build -d
 ```
 を実行
 ```
@@ -14,7 +13,7 @@ docker images
 
 コンテナの中に入る
 ```
-docker-compose up --build -d okidro-api
+# docker-compose up --build -d okidro-api
 docker-compose exec -it okidro-api  /bin/bash
 ```
 
