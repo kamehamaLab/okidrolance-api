@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Device.create(location: "OpenLab")
-Device.create(location: "３F情報卒研室")
-Device.create(location: "４F倉庫")
+Device.create(location: "OpenLab", name: "device1")
+Device.create(location: "３F情報卒研室", name: "sotukenDev")
+Device.create(location: "４F倉庫", name: "soukoDevice1")
 
 randNum = Random.new(1)
 
