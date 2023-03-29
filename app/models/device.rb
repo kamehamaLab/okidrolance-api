@@ -23,7 +23,9 @@ class Device < ApplicationRecord
   def adjust_show_json
     {
       temp:
-        self.temperatures.map(&:temp),
+        self.temperatures.map do |temperature|
+          [temperature.created_at.to_i, temperature.temp]
+        end,
 
       w_temp:
         self.water_temperatures.map(&:w_temp),
