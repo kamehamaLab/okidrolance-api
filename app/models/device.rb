@@ -23,17 +23,18 @@ class Device < ApplicationRecord
   def adjust_show_json
     {
       temp:
-        self.temperatures.map(&:temp),
+        self.temperatures.map do |temperature|
+          [temperature.created_at.to_i * 1000, temperature.temp]
+        end,
 
       w_temp:
-        self.water_temperatures.map(&:w_temp),
+        self.water_temperatures.map do |water_temperature|
+          [water_temperature.created_at.to_i * 1000, water_temperature.w_temp]
+        end,
 
       illum:
-        self.illuminations.map(&:illum),
-
-      created_at:
-        self.temperatures.map do |_temperature|
-          created_at.strftime('%Y/%m/%d %H:%M:%S')
+        self.illuminations.map do |illumination|
+          [illumination.created_at.to_i * 1000, illumination.illum]
         end
     }
   end
