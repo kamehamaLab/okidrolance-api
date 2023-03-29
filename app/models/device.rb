@@ -28,14 +28,13 @@ class Device < ApplicationRecord
         end,
 
       w_temp:
-        self.water_temperatures.map(&:w_temp),
+        self.water_temperatures.map do |water_temperature|
+          [water_temperature.created_at.to_i, water_temperature.w_temp]
+        end,
 
       illum:
-        self.illuminations.map(&:illum),
-
-      created_at:
-        self.temperatures.map do |t|
-          t.created_at.to_i
+        self.illuminations.map do |illumination|
+          [illumination.created_at.to_i, illumination.illum]
         end
     }
   end
